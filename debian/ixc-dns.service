@@ -1,0 +1,22 @@
+[Unit]
+Description=IXC DNS
+
+[Service]
+Type=simple
+ExecStart=/opt/ixc-dns/bin/ixc-dns
+WorkingDirectory=/opt/ixc-dns/etc
+User=ixc-dns
+Group=ixc-dns
+SyslogIdentifier=ixc-dns
+StandardInput=null
+StandardOutput=journal
+Restart=always
+ProtectSystem=strict
+PrivateTmp=true
+PrivateDevices=true
+ReadOnlyPaths=/
+NoNewPrivileges=true
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=multi-user.target

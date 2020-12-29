@@ -1,0 +1,22 @@
+[dns]
+#bind = "127.0.0.1:53"
+bind = ":53"
+#ttl = 1
+ttl = 30
+
+[dns.login]
+# A primeira captura da regexp é usada como login.
+#regexp = "^login-([^.]+)\\."
+regexp = "^([0-9-]+)\\."
+
+[dns.ip]
+# IP retornado quando o nome não corresponde à regexp.
+filtered = ""
+# IP retornado quando o login não existe ou não está conectado.
+not_found = ""
+# IP retornado quando algum erro acontece.
+error = ""
+
+[ixc]
+#dsn = "user:pass@tcp(ip)/database"
+dsn = "user:pass@unix(/var/run/mysqld/mysqld.sock)/ixcprovedor"
